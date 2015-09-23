@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.ufsc.labtec.mazk.activities.fragments.initial.RegisterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:indeterminate="false" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/registerForm"
+        android:layout_gravity="center_horizontal|top"
+        android:fillViewport="false" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Registro"
+                android:textStyle="bold"
+                android:id="@+id/textView2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Nome Completo"
+                android:ems="10"
+                android:id="@+id/name"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="10dp" />
+
+
+            <br.ufsc.labtec.mazk.view.custom.DateDisplayPicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dataDeNascimento"
+                style="@android:style/Widget.Holo.Spinner"
+                android:hint="Data de Nascimento"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="2.90" />
+
+            <AutoCompleteTextView android:id="@+id/email" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress" android:maxLines="1"
+                android:singleLine="true"
+
+                android:layout_gravity="top|center_horizontal" />
+
+            <EditText android:id="@+id/password" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:maxLines="1" android:singleLine="true" />
+            <EditText android:id="@+id/confirmPassword" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Confirme Senha"
+                android:inputType="textPassword"
+                android:maxLines="1" android:singleLine="true" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrar"
+                android:id="@+id/registrar" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
