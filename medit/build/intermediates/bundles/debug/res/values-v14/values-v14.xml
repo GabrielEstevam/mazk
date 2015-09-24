@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Mihael%20Zamin/AndroidStudioProjects/Mazk2/medit/src/main/res/values-v14/styles.xml -->
+    <!-- From: file:/C:/Users/Gabriel/Documents/GitHub/mazk/medit/src/main/res/values-v14/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
