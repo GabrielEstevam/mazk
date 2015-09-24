@@ -1,26 +1,25 @@
 package br.ufsc.labtec.mazk.activities;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.util.List;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentQuestionCallback;
@@ -32,11 +31,9 @@ import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnEditEndList
 import br.ufsc.labtec.mazk.activities.fragments.main.StatsFragment;
 import br.ufsc.labtec.mazk.activities.fragments.main.manager.pergunta.EditPerguntaFragment;
 import br.ufsc.labtec.mazk.activities.fragments.main.manager.pergunta.ManagePerguntasFragment;
-import br.ufsc.labtec.mazk.beans.Alternativa;
 import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Usuario;
 import br.ufsc.labtec.mazk.services.UsuarioResource;
-import br.ufsc.labtec.mazk.services.util.PerguntaService;
 import br.ufsc.labtec.mazk.services.util.UsuarioService;
 import retrofit.Callback;
 import retrofit.RetrofitError;
