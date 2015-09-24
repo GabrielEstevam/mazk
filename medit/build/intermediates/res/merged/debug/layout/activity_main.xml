@@ -1,0 +1,79 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/UnderlineBtn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.medit.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <medit.core.MeditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10" >
+
+        <requestFocus />
+        
+    </medit.core.MeditText>
+    
+    <medit.core.CheckButton
+        android:id="@+id/boldBtn"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:text="N" />
+
+    <medit.core.CheckButton
+        android:id="@+id/italicBtn"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="I" />
+
+    <medit.core.CheckButton
+        android:id="@+id/underline"
+        android:layout_width="36dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:text="S" />
+
+    <ImageButton
+        android:id="@+id/imageBtn"
+        android:layout_width="88dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:src="@drawable/addimgicon" />
+
+    <medit.core.CheckButton
+        android:id="@+id/colorBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="85dp"
+        android:text="Color" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="350dp"
+        android:text="Modo Leitura." />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Progress"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</FrameLayout>
+
+<!-- From: file:/C:/Users/Mihael%20Zamin/AndroidStudioProjects/Mazk2/medit/src/main/res/layout/activity_main.xml -->

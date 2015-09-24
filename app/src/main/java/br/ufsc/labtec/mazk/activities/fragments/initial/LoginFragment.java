@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,11 +17,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.google.gson.Gson;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.listeners.OnRegisterRequestedListener;
@@ -32,6 +34,8 @@ import br.ufsc.labtec.mazk.services.util.UsuarioService;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -80,12 +84,12 @@ public class LoginFragment extends Fragment implements Callback<Usuario> {
         txtRegister.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rrListener != null)
-                    rrListener.registerRequested();
+                if(rrListener != null)
+                rrListener.registerRequested();
             }
         });
 
-        BootstrapButton mEmailSignInButton = (BootstrapButton) v.findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = (Button) v.findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

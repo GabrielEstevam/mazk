@@ -13,17 +13,4 @@
         <!-- Support library compatibility -->
         <item name="background">@android:color/holo_blue_light</item>
     </style>
-
-    <!-- inherit from the material theme -->
-    <style name="AppTheme1" parent="android:Theme.Material">
-        <item name="android:actionBarStyle">@style/BlueActionBar</item>
-        <!-- Main theme colors -->
-        <!--   your app branding color for the app bar -->
-        <!--<item name="android:colorPrimary">@android:color/holo_blue_bright</item>-->
-        <!--   darker variant for the status bar and contextual app bars -->
-        <!--<item name="android:colorPrimaryDark">@android:color/black</item>-->
-        <!--   theme UI controls like checkboxes and text fields -->
-        <!--<item name="android:colorAccent">@android:color/darker_gray</item>-->
-    </style>
-
 </resources>
