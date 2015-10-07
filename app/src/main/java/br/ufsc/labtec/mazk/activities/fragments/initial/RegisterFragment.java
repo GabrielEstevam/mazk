@@ -33,7 +33,7 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class RegisterFragment extends Fragment implements Callback<Usuario> {
-    // TODO: Rename and change types of parameters
+
     private AutoCompleteTextView txtEmail;
     private EditText txtSenha[];
     private Button btnRegistrar;
@@ -47,7 +47,7 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
     private boolean emailValid, senhaValid, senhaMatch;
 
 
-    // TODO: Rename and change types and number of parameters
+
     public static RegisterFragment newInstance() {
         RegisterFragment fragment = new RegisterFragment();
         return fragment;
