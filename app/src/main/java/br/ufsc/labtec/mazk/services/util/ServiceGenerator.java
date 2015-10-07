@@ -1,31 +1,25 @@
 package br.ufsc.labtec.mazk.services.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
 
-import java.util.Date;
-
-import br.ufsc.labtec.mazk.beans.json.DateSerializer;
-import br.ufsc.labtec.mazk.beans.json.DefaultGson;
 import br.ufsc.labtec.mazk.interceptor.LoginRequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.android.AndroidLog;
 import retrofit.client.OkClient;
-import retrofit.converter.GsonConverter;
 import retrofit.converter.JacksonConverter;
 
 /**
  * Created by Mihael Zamin on 30/03/2015.
  */
-public abstract class ServiceGenerator <S> {
+public abstract class ServiceGenerator<S> {
     // No need to instantiate this class.
     private Class<S> serviceClass;
-    public ServiceGenerator()
-    {
+
+    public ServiceGenerator() {
 
     }
+
     protected ServiceGenerator(Class<S> serviceClass) {
         this.serviceClass = serviceClass;
     }

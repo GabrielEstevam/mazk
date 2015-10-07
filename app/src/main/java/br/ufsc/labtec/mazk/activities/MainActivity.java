@@ -1,8 +1,9 @@
 package br.ufsc.labtec.mazk.activities;
 
-import android.app.Activity;
-import android.app.Fragment;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,11 +11,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,25 +20,38 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 import br.ufsc.labtec.mazk.R;
+import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentAreaCallback;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentQuestionCallback;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentUserCallback;
-import br.ufsc.labtec.mazk.activities.fragments.listeners.OnAddRequestedListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.OnEditEndListener;
 import br.ufsc.labtec.mazk.activities.fragments.listeners.OnStartNewTentativa;
-import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnEditChoosedListener;
-import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnEditEndListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.OnUserEditChoosedListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.area.OnAreaAddRequested;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.area.OnAreaEditChoosedListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnExemploEditRequested;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnPerguntaAddRequestedListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnPerguntaEditChoosedListener;
 import br.ufsc.labtec.mazk.activities.fragments.main.StatsFragment;
+import br.ufsc.labtec.mazk.activities.fragments.main.manager.area.EditAreaFragment;
+import br.ufsc.labtec.mazk.activities.fragments.main.manager.area.ListAreasFragment;
 import br.ufsc.labtec.mazk.activities.fragments.main.manager.pergunta.EditPerguntaFragment;
+import br.ufsc.labtec.mazk.activities.fragments.main.manager.pergunta.ExemploFragment;
 import br.ufsc.labtec.mazk.activities.fragments.main.manager.pergunta.ManagePerguntasFragment;
+import br.ufsc.labtec.mazk.activities.fragments.main.manager.usuario.EditUsuarioFragment;
+import br.ufsc.labtec.mazk.activities.fragments.main.manager.usuario.ListUsuarioFragment;
+import br.ufsc.labtec.mazk.beans.Area;
 import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Usuario;
+import br.ufsc.labtec.mazk.services.PerguntaResource;
 import br.ufsc.labtec.mazk.services.UsuarioResource;
+import br.ufsc.labtec.mazk.services.util.PerguntaService;
 import br.ufsc.labtec.mazk.services.util.UsuarioService;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class MainActivity extends ActionBarActivity
-        implements OnStartNewTentativa, OnEditEndListener, OnAddRequestedListener, NavigationDrawerFragment.NavigationDrawerCallbacks, OnEditChoosedListener, CurrentUserCallback, CurrentQuestionCallback{
+        implements OnExemploEditRequested, OnUserEditChoosedListener, OnEditEndListener, CurrentAreaCallback, OnAreaAddRequested, OnAreaEditChoosedListener, OnStartNewTentativa, OnPerguntaAddRequestedListener, NavigationDrawerFragment.NavigationDrawerCallbacks, OnPerguntaEditChoosedListener, CurrentUserCallback, CurrentQuestionCallback {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -52,28 +63,36 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
     private Usuario u;
+    private Area currentArea;
     private boolean adminMode;
     private Pergunta p;
     private boolean doubleBackToExitPressedOnce;
     private String json;
+    private ExemploFragment exemploFragment;
+    private PerguntaResource pr;
+    private ProgressDialog progress;
+    private EditPerguntaFragment epf;
+    private Usuario userToEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        userToEdit = null;
         setContentView(R.layout.activity_main);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = "Mazk";
         json = this.getIntent().getExtras().getString("usuario");
-       // Log.i("JSON", json);
+
+
+        // Log.i("JSON", json);
         try {
             this.u = new ObjectMapper().readValue(json, Usuario.class);
             UsuarioResource ur = new UsuarioService().createService(getString(R.string.server_url), u.getEmail(), u.getSenha());
             ur.login(new Callback<Usuario>() {
                 @Override
                 public void success(Usuario usuario, Response response) {
-                     MainActivity.this.u = usuario;
+                    MainActivity.this.u = usuario;
                 }
 
                 @Override
@@ -95,24 +114,32 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public  void onNavigationDrawerItemSelected(int position){
+    public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        if(adminMode) {
-            if(position == 0) {
-                mTitle = "Estatísticas";
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, StatsFragment.newInstance(), "estatísticas").addToBackStack(null).commit();
+        if (adminMode) {
+            switch (position) {
+                case 0:
+                default:
+                    mTitle = "Estatísticas";
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, StatsFragment.newInstance(), "estatísticas").addToBackStack(null).commit();
+                    break;
 
-
-            }
-             else if(position == 1)
-            {
-                mTitle = "Perguntas";
+                case 1:
+                    mTitle = "Perguntas";
                     fragmentManager.beginTransaction().replace(R.id.container, ManagePerguntasFragment.newInstance(), "perguntas").addToBackStack(null).commit();
+                    break;
+                case 2:
+                    mTitle = "Usuários";
+                    fragmentManager.beginTransaction().replace(R.id.container, new ListUsuarioFragment(), "usuarios").addToBackStack(null).commit();
+                    break;
+                case 3:
+                    mTitle = "Áreas";
+                    fragmentManager.beginTransaction().replace(R.id.container, new ListAreasFragment(), "areas").addToBackStack(null).commit();
+                    break;
             }
-        }
-        else fragmentManager.beginTransaction()
+        } else fragmentManager.beginTransaction()
                 .replace(R.id.container, StatsFragment.newInstance(), "estatísticas").commit();
         restoreActionBar();
     }
@@ -123,7 +150,13 @@ public class MainActivity extends ActionBarActivity
                 mTitle = "Estatísticas";
                 break;
             case 1:
-                mTitle = /*getString(R.string.title_section2);*/ "Perguntas";
+                mTitle = "Perguntas";
+                break;
+            case 2:
+                mTitle = "Usuários";
+                break;
+            case 3:
+                mTitle = "Áreas";
                 break;
 
 
@@ -136,7 +169,6 @@ public class MainActivity extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -155,10 +187,9 @@ public class MainActivity extends ActionBarActivity
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-
         return super.onOptionsItemSelected(item);
     }
-    private EditPerguntaFragment epf;
+
     @Override
     public void editChoosed(Pergunta pe) {
         p = pe;
@@ -166,11 +197,53 @@ public class MainActivity extends ActionBarActivity
         getFragmentManager().beginTransaction().replace(R.id.container, epf).addToBackStack(null).commit();
 
 
-
     }
+
     @Override
     public void onBackPressed() {
-        if(getFragmentManager().getBackStackEntryCount() == 0) {
+        if (exemploFragment != null) {
+            if (exemploFragment.isVisible()) {
+                AlertDialog alert = new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Salvar progresso")
+                        .setMessage("Deseja salvar antes de retornar à tela de edição de perguntas?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                progress = ProgressDialog.show(MainActivity.this, "Carregando",
+                                        "Salvando seu progresso...", true);
+                                pr = new PerguntaService().createService(getString(R.string.server_url), u.getEmail(), u.getSenha());
+                                pr.updatePergunta(p, new Callback<Pergunta>() {
+                                    @Override
+                                    public void success(Pergunta pergunta, Response response) {
+                                        p.setExemploList(p.getExemploList());
+                                        progress.dismiss();
+                                        getFragmentManager().popBackStack();
+                                    }
+
+                                    @Override
+                                    public void failure(RetrofitError error) {
+                                        Toast.makeText(MainActivity.this, "Erro ao concluir operação: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                                        progress.dismiss();
+                                    }
+                                });
+
+                            }
+
+                        })
+                        .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                exemploFragment.cancel();
+                                getFragmentManager().popBackStack();
+                            }
+
+                        }).setCancelable(true)
+                        .show();
+                return;
+            }
+        }
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
 
             if (doubleBackToExitPressedOnce) {
                 Intent i = new Intent(MainActivity.this, InitialActivity.class);
@@ -186,16 +259,17 @@ public class MainActivity extends ActionBarActivity
 
                 @Override
                 public void run() {
-                    doubleBackToExitPressedOnce=false;
+                    doubleBackToExitPressedOnce = false;
                 }
             }, 2000);
-        }
-        else {
+        } else {
             getFragmentManager().popBackStack();
         }
     }
+
     @Override
     public Usuario getCurrentUser() {
+
         return u;
     }
 
@@ -205,21 +279,25 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public void addRequested() {
+    public void addPerguntaRequested() {
         this.p = null;
         getFragmentManager().beginTransaction().replace(R.id.container, EditPerguntaFragment.newInstance()).addToBackStack(null).commit();
 
     }
 
     @Override
-    public void editEndListener() {
+    public void onEditEnd() {
         getFragmentManager().popBackStack();
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        epf.setAddImage(requestCode, requestCode, data);
+        if (epf.isVisible())
+            epf.setAddImage(requestCode, resultCode, data);
+        else if (exemploFragment.isVisible())
+            exemploFragment.setAddImage(requestCode, resultCode, data);
     }
 
     @Override
@@ -227,48 +305,65 @@ public class MainActivity extends ActionBarActivity
         Intent i = new Intent(MainActivity.this, RespostasActivity.class);
         ObjectMapper mapper = new ObjectMapper();
         i.putExtra("usuario", json);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
+    @Override
+    public void areaEditChoosed(Area a) {
+        currentArea = a;
+        getFragmentManager().beginTransaction().replace(R.id.container, new EditAreaFragment()).addToBackStack(null).commit();
     }
 
+    @Override
+    public void areaAddRequested() {
+        this.currentArea = null;
+        getFragmentManager().beginTransaction().replace(R.id.container, new EditAreaFragment()).addToBackStack(null).commit();
+    }
+
+    @Override
+    public Area getCurrentArea() {
+        return currentArea;
+    }
+
+
+    @Override
+    protected void onResume() {
+        UsuarioResource ur = new UsuarioService().createService(getString(R.string.server_url), u.getEmail(), u.getSenha());
+        ur.login(new Callback<Usuario>() {
+            @Override
+            public void success(Usuario usuario, Response response) {
+                MainActivity.this.u = usuario;
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+        super.onResume();
+    }
+
+    @Override
+    public void userEditChoosed(Usuario usuario) {
+        userToEdit = usuario;
+        getFragmentManager().beginTransaction().replace(R.id.container, new EditUsuarioFragment(), "editUsuario").commit();
+
+    }
+
+    @Override
+    public Usuario getUserToEdit() {
+        return userToEdit;
+    }
+
+    @Override
+    public void userEditFinished() {
+        getFragmentManager().beginTransaction().replace(R.id.container, new ListUsuarioFragment(), "usuarios").addToBackStack(null).commit();
+
+    }
+
+    @Override
+    public void exemploEditRequested() {
+        getFragmentManager().beginTransaction().replace(R.id.container, new ExemploFragment(), "exemplos").addToBackStack(null).commit();
+
+    }
 }

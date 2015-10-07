@@ -1,15 +1,12 @@
 package br.ufsc.labtec.mazk.beans;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
 /**
  * Created by Mihael Zamin on 07/04/2015.
  */
-@JsonIdentityInfo(generator=JSOGGenerator.class)
+@JsonIdentityInfo(generator = JSOGGenerator.class)
 //@JsonIgnoreProperties({"@ref"})
 public class Exemplo {
     private Integer idExemplo;
@@ -39,4 +36,6 @@ public class Exemplo {
     public void setPergunta(Pergunta pergunta) {
         this.pergunta = pergunta;
     }
+
+
 }

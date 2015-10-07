@@ -16,32 +16,30 @@ public class ConditionalArrayAdapter extends ArrayAdapter<String> {
     private EnableItemCondition condition;
     private int resource;
 
-    public void setCondition(EnableItemCondition condition) {
-        this.condition = condition;
-    }
-
     public ConditionalArrayAdapter(Context context, int resource, String[] objects) {
         super(context, resource, objects);
         this.resource = resource;
     }
 
+    public void setCondition(EnableItemCondition condition) {
+        this.condition = condition;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if(convertView == null)
-        {
+        if (convertView == null) {
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater vi;
-            vi = (LayoutInflater)getContext().getSystemService(inflater);
+            vi = (LayoutInflater) getContext().getSystemService(inflater);
             convertView = vi.inflate(resource, parent, false);
             holder = new ViewHolder();
-            holder.setTextView((TextView)convertView.findViewById(R.id.tvOption));
+            holder.setTextView((TextView) convertView.findViewById(R.id.tvOption));
             holder.getTextView().setText(getItem(position));
             convertView.setTag(holder);
 
-        }else
-        {
-            holder = (ViewHolder)convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
         return convertView;
     }
@@ -51,8 +49,11 @@ public class ConditionalArrayAdapter extends ArrayAdapter<String> {
         return (condition == null) ? super.isEnabled(position) : condition.enableItem(position);
     }
 
-    private class ViewHolder
-    {
+    public interface EnableItemCondition {
+        public boolean enableItem(int position);
+    }
+
+    private class ViewHolder {
         private TextView textView;
 
         public TextView getTextView() {
@@ -62,9 +63,5 @@ public class ConditionalArrayAdapter extends ArrayAdapter<String> {
         public void setTextView(TextView textView) {
             this.textView = textView;
         }
-    }
-    public interface EnableItemCondition
-    {
-        public boolean enableItem(int position);
     }
 }

@@ -19,14 +19,16 @@ import br.ufsc.labtec.mazk.R;
  */
 public class ProgressFragment extends Fragment {
     private ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_progress, container, false);
-        progressBar = (ProgressBar)v.findViewById(R.id.progressBar2);
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBar2);
         showProgress(true);
         return v;
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void showProgress(final boolean show) {
         // On Honeycomb MRlistView2 we have the ViewPropertyAnimator APIs, which allow

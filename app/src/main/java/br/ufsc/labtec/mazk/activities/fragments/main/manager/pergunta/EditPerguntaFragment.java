@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -19,21 +20,24 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentQuestionCallback;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentUserCallback;
-import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnEditEndListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.OnEditEndListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnExemploEditRequested;
 import br.ufsc.labtec.mazk.adapters.AlternativaEditAdapter;
+import br.ufsc.labtec.mazk.adapters.AreaListAdapter;
 import br.ufsc.labtec.mazk.beans.Alternativa;
+import br.ufsc.labtec.mazk.beans.Area;
 import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Usuario;
+import br.ufsc.labtec.mazk.services.AreaResource;
 import br.ufsc.labtec.mazk.services.PerguntaResource;
+import br.ufsc.labtec.mazk.services.util.AreaService;
 import br.ufsc.labtec.mazk.services.util.PerguntaService;
 import br.ufsc.labtec.mazk.view.custom.MeditDialog;
 import medit.core.MeditText;
@@ -43,6 +47,7 @@ import retrofit.client.Response;
 
 /**
  * Created by Mihael Zamin on 09/04/2015.
+ * Fragmento usado para editar as perguntas
  */
 public class EditPerguntaFragment extends Fragment {
     private Pergunta p;
@@ -55,44 +60,100 @@ public class EditPerguntaFragment extends Fragment {
     private MeditDialog medit;
     private OnEditEndListener editEndListener;
     private Context context;
+    private AreaListAdapter ald;
+    private AreaResource areaResource;
+    private Area areaSelecionada;
 
-    public static EditPerguntaFragment newInstance()
-    {
+    public static EditPerguntaFragment newInstance() {
         EditPerguntaFragment fragment = new EditPerguntaFragment();
         return fragment;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_editpergunta, container, false);
-        explicacao = p.getExplicacao();
+        //explicacao = p.getExplicacao();
         medit = new MeditDialog(getActivity(), null, getActivity());
-        holder = new ViewHolder((ListView)v.findViewById(R.id.lvAlternativa),
-                (Spinner)v.findViewById(R.id.spinArea),
-                (EditText)v.findViewById(R.id.etEnunciado),
-                (TextView)v.findViewById(R.id.tvEnunciano), (CheckBox)v.findViewById(R.id.cbAtivo));
+        holder = new ViewHolder((ListView) v.findViewById(R.id.lvAlternativa),
+                (Spinner) v.findViewById(R.id.spinArea),
+                (EditText) v.findViewById(R.id.etEnunciado),
+                (TextView) v.findViewById(R.id.tvEnunciano), (CheckBox) v.findViewById(R.id.cbAtivo));
         adapter = new AlternativaEditAdapter(getActivity());
         holder.getListaAlternativa().setAdapter(adapter);
-       if(p != null)
-       {
-           create = false;
-           explicacao = p.getExplicacao();
-           fill(holder);
-       } else
-       {
-           p= new Pergunta();
-           create = true;
-       }
+        ald = new AreaListAdapter(getActivity());
+        areaResource = new AreaService().createService(getString(R.string.server_url), usuario.getEmail(), usuario.getSenha());
+        holder.getSpinnerArea().setAdapter(ald);
+        //Obtém todas as áreas
+        areaResource.getAreas(new Callback<List<Area>>() {
+            @Override
+            public void success(List<Area> areas, Response response) {
+                ald.setList(areas);
+                if (p.getAreaList() != null) {
+                    if(!p.getAreaList().isEmpty()) {
+                        areaSelecionada = p.getAreaList().get(0);
+                        holder.getSpinnerArea().setSelection(ald.getList().indexOf(areaSelecionada));
+                    }
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+        holder.getSpinnerArea().setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                areaSelecionada = ald.getList().get(position);
+              /*  Area a = ald.getList().get(position);
+                if(EditPerguntaFragment.this.p.getAreaList() != null)
+                    for(Area ar : EditPerguntaFragment.this.p.getAreaList())
+                    {
+                        if(ar.getPerguntaList() != null)
+                            ar.getPerguntaList().remove(p);
+                    }
+                EditPerguntaFragment.this.p.setAreaList(new ArrayList<Area>());
+                EditPerguntaFragment.this.p.getAreaList().add(a);
+                if(a.getPerguntaList() == null)
+                    a.setPerguntaList(new ArrayList<Pergunta>());
+                    a.getPerguntaList().add(p);
+                holder.getSpinnerArea().setSelection(position);*/
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        if (p != null) {
+            create = false;
+            explicacao = p.getExplicacao();
+
+            fill(holder);
+        } else {
+            p = new Pergunta();
+            create = true;
+        }
 
 
         return v;
     }
-    private void fill(ViewHolder holder)
-    {
-        if(p.getAlternativaList() != null)
-            if(!p.getAlternativaList().isEmpty())
+
+    private void fill(ViewHolder holder) {
+        if (p.getAreaList() != null) {
+            if(!p.getAreaList().isEmpty()) {
+                areaSelecionada = p.getAreaList().get(0);
+                holder.getSpinnerArea().setSelection(ald.getList().indexOf(areaSelecionada));
+            }
+        }
+        if (p.getAlternativaList() != null)
+            if (!p.getAlternativaList().isEmpty())
                 adapter.setAlternativas(p.getAlternativaList());
         holder.getTxtEnunciado().setText(p.getEnunciado());
         holder.getCbAtivo().setChecked(p.getAtivo());
+
+
 
     }
 
@@ -110,33 +171,37 @@ public class EditPerguntaFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.add_alternativa)
-        {
-            if( p == null) p = new Pergunta();
-            Alternativa a  = new Alternativa();
+        if (item.getItemId() == R.id.add_alternativa) {
+            if (p == null) p = new Pergunta();
+            Alternativa a = new Alternativa();
             a.setPergunta(p);
             adapter.add(a);
             p.setAlternativaList(adapter.getAlternativas());
+            return super.onOptionsItemSelected(item);
         }
-        if(item.getItemId() == R.id.change_explicacao)
-        {
-            medit = new MeditDialog(getActivity(),explicacao, getActivity());
+        if (item.getItemId() == R.id.change_explicacao) {
+            medit = new MeditDialog(getActivity(), explicacao, getActivity());
 
             medit.setListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        explicacao = ((MeditText) v.getTag()).toHtml().getBytes(Charset.forName("UTF-8"));
+                    explicacao = ((MeditText) v.getTag()).toHtml().getBytes(Charset.forName("UTF-8"));
                 }
             });
             medit.show();
             return true;
         }
-        if(item.getItemId()==R.id.action_item_pergunta_add)
-        {
+        if (item.getItemId() == R.id.action_item_pergunta_add) {
             salvarPergunta();
-            editEndListener.editEndListener();
+            editEndListener.onEditEnd();
             return true;
         }
+        if (item.getItemId() == R.id.change_exemplos) {
+            ((OnExemploEditRequested) getActivity()).exemploEditRequested();
+            return super.onOptionsItemSelected(item);
+
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -145,30 +210,40 @@ public class EditPerguntaFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.context = activity;
-        try
-        {
-            this.p = ((CurrentQuestionCallback)activity).getCurrentQuestion();
-            usuario = ((CurrentUserCallback)activity).getCurrentUser();
-            editEndListener = (OnEditEndListener)activity;
+        try {
+            this.p = ((CurrentQuestionCallback) activity).getCurrentQuestion();
+            usuario = ((CurrentUserCallback) activity).getCurrentUser();
+            editEndListener = (OnEditEndListener) activity;
+
             setHasOptionsMenu(true);
 
-        }catch(ClassCastException e)
-        {
+        } catch (ClassCastException e) {
             Log.e("EditPergunta", "Must implement callbacks");
         }
     }
-    private void salvarPergunta()
-    {
-        if( p == null) p = new Pergunta();
+
+    private void salvarPergunta() {
+        if (p == null) p = new Pergunta();
         p.setAtivo(holder.getCbAtivo().isChecked());
         p.setEnunciado(holder.getTxtEnunciado().getText().toString());
         PerguntaResource pr = new PerguntaService().createService(getString(R.string.server_url), usuario.getEmail(), usuario.getSenha());
         List<Alternativa> list = adapter.getAlternativas();
         p.setAlternativaList(list);
         p.setExplicacao(explicacao);
-        Log.i("EditPergunta", "Tamanho da lista: " + p.getAlternativaList().size());
+        Area a = areaSelecionada;
 
-        if(create)
+        if (EditPerguntaFragment.this.p.getAreaList() != null)
+            for (Area ar : EditPerguntaFragment.this.p.getAreaList()) {
+                if (ar.getPerguntaList() != null)
+                    ar.getPerguntaList().remove(p);
+            }
+        EditPerguntaFragment.this.p.setAreaList(new ArrayList<Area>());
+        EditPerguntaFragment.this.p.getAreaList().add(a);
+
+        if (a.getPerguntaList() == null)
+            a.setPerguntaList(new ArrayList<Pergunta>());
+        a.getPerguntaList().add(p);
+          if (create)
             pr.addPergunta(p, new Callback<Pergunta>() {
                 @Override
                 public void success(Pergunta pergunta, Response response) {
@@ -201,12 +276,11 @@ public class EditPerguntaFragment extends Fragment {
     }
 
 
-    public void setAddImage(int requestCode, int resultCode, Intent data)
-    {
+    public void setAddImage(int requestCode, int resultCode, Intent data) {
         medit.addImage(requestCode, resultCode, data);
     }
-    private class ViewHolder
-    {
+
+    private class ViewHolder {
         private ListView listaAlternativa;
         private Spinner spinnerArea;
         private EditText txtEnunciado;

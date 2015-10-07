@@ -189,4 +189,11 @@ public class RespostasActivity extends Activity implements RespostaCallback, Nex
     public PerguntaResource getPerguntaResource() {
         return pr;
     }
+
+    @Override
+    public void onBackPressed() {
+        if (!perguntaStack.empty())
+            Toast.makeText(this, "Você não pode sair enquanto não responder todas as questões", Toast.LENGTH_SHORT).show();
+        else super.onBackPressed();
+    }
 }

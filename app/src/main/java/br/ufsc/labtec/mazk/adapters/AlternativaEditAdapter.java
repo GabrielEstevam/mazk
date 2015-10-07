@@ -7,17 +7,13 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 import br.ufsc.labtec.mazk.R;
@@ -27,14 +23,15 @@ import br.ufsc.labtec.mazk.beans.Alternativa;
  * Created by Mihael Zamin on 09/04/2015.
  */
 public class AlternativaEditAdapter extends BaseAdapter {
-    private List<Alternativa> alternativas;
     private final Context context;
+    private List<Alternativa> alternativas;
 
     // the context is needed to inflate views in getView()
     public AlternativaEditAdapter(Context context) {
         this.context = context;
         alternativas = Collections.EMPTY_LIST;
     }
+
     @Override
     public int getCount() {
         return alternativas.size();
@@ -54,29 +51,27 @@ public class AlternativaEditAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
 
-        if(convertView == null)
-        {
+        if (convertView == null) {
             holder = new ViewHolder();
-            convertView = ((LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.adapter_alternativaedit, null);
-            holder.setRbCorreta((RadioButton)convertView.findViewById(R.id.rbCorreta));
+            convertView = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.adapter_alternativaedit, null);
+            holder.setRbCorreta((RadioButton) convertView.findViewById(R.id.rbCorreta));
             holder.setEtAlternativa((EditText) convertView.findViewById(R.id.etAlternativa));
             holder.pos = position;
 
             convertView.setTag(holder);
-        }else
-        {
-            holder = (ViewHolder)convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
 
         Alternativa current = getItem(position);
-        if(!TextUtils.isEmpty(current.getDescricao()))
-        holder.getEtAlternativa().setText(current.getDescricao());
+        if (!TextUtils.isEmpty(current.getDescricao()))
+            holder.getEtAlternativa().setText(current.getDescricao());
         holder.getRbCorreta().setChecked(current.isCorreta());
         holder.getRbCorreta().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
+                if (isChecked) {
                     AlternativaEditAdapter.this.setCorreta(position);
 
 
@@ -104,40 +99,39 @@ public class AlternativaEditAdapter extends BaseAdapter {
         return convertView;
 
     }
-    public void setCorreta(int p)
-    {
+
+    public void setCorreta(int p) {
 
         int i = 0;
-        for(Alternativa a : alternativas)
-        {
-            a.setCorreta(i==p);
+        for (Alternativa a : alternativas) {
+            a.setCorreta(i == p);
             i++;
         }
         this.notifyDataSetChanged();
     }
-    public List<Alternativa> getAlternativas()
-    {
+
+    public List<Alternativa> getAlternativas() {
         return alternativas;
     }
-    public void setAlternativas(List<Alternativa> alternativas)
-    {
+
+    public void setAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;
         notifyDataSetChanged();
     }
-    public void add(Alternativa a)
-    {
+
+    public void add(Alternativa a) {
         a.setCorreta(false);
-        if(alternativas.isEmpty())
+        if (alternativas.isEmpty())
             alternativas = new ArrayList<>();
         alternativas.add(a);
         notifyDataSetChanged();
     }
-    private static class ViewHolder
-    {
 
+    private static class ViewHolder {
+
+        public int pos;
         private EditText etAlternativa;
         private RadioButton rbCorreta;
-        public int pos;
 
         public RadioButton getRbCorreta() {
             return rbCorreta;

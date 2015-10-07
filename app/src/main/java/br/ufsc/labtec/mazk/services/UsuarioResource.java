@@ -6,7 +6,9 @@ import br.ufsc.labtec.mazk.beans.Tentativa;
 import br.ufsc.labtec.mazk.beans.Tipo;
 import br.ufsc.labtec.mazk.beans.Usuario;
 import retrofit.Callback;
+import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Path;
 
 /**
@@ -15,12 +17,20 @@ import retrofit.http.Path;
 public interface UsuarioResource {
     @GET("/usuario/listar")
     public void listar(Callback<List<Usuario>> cb);
+
     @GET("/usuario/getinfo/{id}")
     public void getUserInfo(@Path("id") int id, Callback<Usuario> cb);
+
     @GET("/usuario/login")
     public void login(Callback<Usuario> cb);
+
     @GET("/usuario/tipo")
     public void getAllTipos(Callback<List<Tipo>> cb);
+
     @GET("/usuario/tentativas")
     public void getAllTentativas(Callback<List<Tentativa>> cb);
+
+    @POST("/usuario/update")
+    public void updateUsuario(@Body Usuario u, Callback<Usuario> cb);
+
 }

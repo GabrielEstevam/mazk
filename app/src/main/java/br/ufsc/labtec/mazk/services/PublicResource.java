@@ -3,7 +3,6 @@ package br.ufsc.labtec.mazk.services;
 import br.ufsc.labtec.mazk.beans.Usuario;
 import retrofit.Callback;
 import retrofit.http.Body;
-import retrofit.http.Field;
 import retrofit.http.POST;
 
 
@@ -13,6 +12,7 @@ import retrofit.http.POST;
 public interface PublicResource {
     @POST("/public/cadastro")
     public void cadastro(@Body Usuario u, Callback<Usuario> cb);
+
     @POST("/public/checkemail")
     public void isExistentEmail(@Body String email, Callback<Boolean> cb);
 }

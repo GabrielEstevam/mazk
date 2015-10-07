@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_area"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Adicionar Area"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/refresh_areas"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:title="Refresh"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:id="@+id/layout_stats"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:weightSum="1">
+
     <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="200dip"
-        android:id="@+id/graph"
-        android:layout_marginTop="80dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/txtStatus"
-        android:text="Status" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Status"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/start_tentativa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_tentativa"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/link_text_material_light"
-        android:textStyle="bold"
-        android:text="@string/start_tentativa"
-        android:id="@+id/start_tentativa" />
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -24,8 +24,8 @@ import java.util.List;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentUserCallback;
-import br.ufsc.labtec.mazk.activities.fragments.listeners.OnAddRequestedListener;
-import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnEditChoosedListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnPerguntaAddRequestedListener;
+import br.ufsc.labtec.mazk.activities.fragments.listeners.pergunta.OnPerguntaEditChoosedListener;
 import br.ufsc.labtec.mazk.adapters.PerguntasAdapter;
 import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Usuario;
@@ -42,17 +42,22 @@ public class ManagePerguntasFragment extends Fragment {
     private ListView listView;
     private PerguntaResource pr;
     private Usuario u;
-    private OnEditChoosedListener editChoosedListener;
-    private OnAddRequestedListener addRequestedListener;
+    private OnPerguntaEditChoosedListener editChoosedListener;
+    private OnPerguntaAddRequestedListener addRequestedListener;
     private PerguntasAdapter adapter;
     private ProgressBar mProgressView;
+
+    public static ManagePerguntasFragment newInstance() {
+        ManagePerguntasFragment f = new ManagePerguntasFragment();
+        return f;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_manageperguntas, container, false);
         pr = new PerguntaService().createService(getString(R.string.server_url), u.getEmail(), u.getSenha());
         listView = (ListView) v.findViewById(R.id.listPerguntas);
-        mProgressView = (ProgressBar)v.findViewById(R.id.perguntas_progress);
+        mProgressView = (ProgressBar) v.findViewById(R.id.perguntas_progress);
         showProgress(true);
         pr.listarPerguntas(new Callback<List<Pergunta>>() {
             @Override
@@ -60,12 +65,12 @@ public class ManagePerguntasFragment extends Fragment {
                 adapter = new PerguntasAdapter(getActivity(), R.layout.layout_listperguntaitem, perguntas);
                 listView.setAdapter(adapter);
                 showProgress(false);
-                
+
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.e("mngPergunta",error.getMessage());
+                Log.e("mngPergunta", error.getMessage());
                 showProgress(false);
             }
         });
@@ -77,11 +82,6 @@ public class ManagePerguntasFragment extends Fragment {
         });
         return v;
     }
-    public static ManagePerguntasFragment newInstance()
-    {
-        ManagePerguntasFragment f = new ManagePerguntasFragment();
-        return f;
-    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -92,14 +92,11 @@ public class ManagePerguntasFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.add_pergunta)
-        {
-            addRequestedListener.addRequested();
+        if (item.getItemId() == R.id.add_pergunta) {
+            addRequestedListener.addPerguntaRequested();
 
             return true;
-        }
-        else if( item.getItemId() == R.id.refresh_perguntas)
-        {
+        } else if (item.getItemId() == R.id.refresh_perguntas) {
             showProgress(true);
             pr.listarPerguntas(new Callback<List<Pergunta>>() {
                 @Override
@@ -112,7 +109,7 @@ public class ManagePerguntasFragment extends Fragment {
 
                 @Override
                 public void failure(RetrofitError error) {
-                    Log.e("mngPergunta",error.getMessage());
+                    Log.e("mngPergunta", error.getMessage());
                     Toast.makeText(getActivity(), "Erro ao atualizar", Toast.LENGTH_LONG);
                     showProgress(false);
                 }
@@ -125,18 +122,17 @@ public class ManagePerguntasFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        try
-        {
-            editChoosedListener = (OnEditChoosedListener) activity;
-            addRequestedListener = (OnAddRequestedListener) activity;
+        try {
+            editChoosedListener = (OnPerguntaEditChoosedListener) activity;
+            addRequestedListener = (OnPerguntaAddRequestedListener) activity;
 
-            u =  ((CurrentUserCallback)activity).getCurrentUser();
+            u = ((CurrentUserCallback) activity).getCurrentUser();
             setHasOptionsMenu(true);
-        } catch (ClassCastException e)
-        {
+        } catch (ClassCastException e) {
             Log.e("ManagePerguntasFragment", "Current activity must implement Listeners");
         }
     }
+
     /**
      * Shows the progress UI and hides the login form.
      */

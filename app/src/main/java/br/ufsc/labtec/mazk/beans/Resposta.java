@@ -1,13 +1,7 @@
 package br.ufsc.labtec.mazk.beans;
 
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.google.gson.annotations.SerializedName;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
 import java.util.ArrayList;
@@ -16,14 +10,14 @@ import java.util.Date;
 /**
  * Created by Mihael Zamin on 25/03/2015.
  */
-@JsonIdentityInfo(generator=JSOGGenerator.class)
+@JsonIdentityInfo(generator = JSOGGenerator.class)
 //@JsonIgnoreProperties({"@ref"})
 public class Resposta {
 
     private Integer idResposta;
-    
+
     private Date data;
-    
+
     private int tempoDecorrido;
     private Alternativa alternativa;
     private Pergunta pergunta;
@@ -59,10 +53,10 @@ public class Resposta {
 
     public void setAlternativa(Alternativa alternativa) {
         this.alternativa = alternativa;
-        if(alternativa.getRespostaList() == null)
+        if (alternativa.getRespostaList() == null)
             alternativa.setRespostaList(new ArrayList<Resposta>());
-        if(alternativa.getRespostaList().indexOf(this) == -1)
-        alternativa.getRespostaList().add(this);
+        if (alternativa.getRespostaList().indexOf(this) == -1)
+            alternativa.getRespostaList().add(this);
     }
 
     public Pergunta getPergunta() {
@@ -71,10 +65,10 @@ public class Resposta {
 
     public void setPergunta(Pergunta pergunta) {
         this.pergunta = pergunta;
-        if(pergunta.getRespostaList() == null)
+        if (pergunta.getRespostaList() == null)
             pergunta.setRespostaList(new ArrayList<Resposta>());
-         if(pergunta.getRespostaList().indexOf(this) == -1)
-             pergunta.getRespostaList().add(this);
+        if (pergunta.getRespostaList().indexOf(this) == -1)
+            pergunta.getRespostaList().add(this);
     }
 
     public Tentativa getTentativa() {
@@ -83,10 +77,10 @@ public class Resposta {
 
     public void setTentativa(Tentativa tentativa) {
         this.tentativa = tentativa;
-        if(tentativa.getRespostaList() == null)
+        if (tentativa.getRespostaList() == null)
             tentativa.setRespostaList(new ArrayList<Resposta>());
-        if(tentativa.getRespostaList().indexOf(this) == -1)
-        tentativa.getRespostaList().add(this);
+        if (tentativa.getRespostaList().indexOf(this) == -1)
+            tentativa.getRespostaList().add(this);
     }
 
     @Override

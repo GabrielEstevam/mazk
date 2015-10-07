@@ -9,8 +9,6 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.Date;
 
 /**

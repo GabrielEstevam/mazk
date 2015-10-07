@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item android:id ="@+id/add_pergunta"
-    android:title="Adicionar Pergunta"
-    android:icon="@android:drawable/ic_menu_add"
-    app:showAsAction="ifRoom" />
-    <item android:id ="@+id/refresh_perguntas"
-        android:title="Refresh"
+    <item
+        android:id="@+id/add_pergunta"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Adicionar Pergunta"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/refresh_perguntas"
         android:icon="@android:drawable/ic_menu_rotate"
+        android:title="Refresh"
         app:showAsAction="ifRoom" />
 </menu>

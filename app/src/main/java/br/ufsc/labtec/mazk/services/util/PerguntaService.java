@@ -1,6 +1,5 @@
 package br.ufsc.labtec.mazk.services.util;
 
-import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.services.PerguntaResource;
 
 /**

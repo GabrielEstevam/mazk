@@ -1,73 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Concluído."
-        android:id="@+id/textView5"
+        android:layout_gravity="center_horizontal"
         android:elegantTextHeight="false"
-        android:layout_gravity="center_horizontal" />
+        android:text="Concluído."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="80dp"
-        android:layout_gravity="center">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
             <TextView
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Acertos:"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/textView6" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
+                android:id="@+id/ftf_acertos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/ftf_acertos"
                 android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/textView6"
                 android:layout_toRightOf="@+id/textView6"
-                android:layout_toEndOf="@+id/textView6" />
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <TextView
+                android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Erros:"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/textView7" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
+                android:id="@+id/ftf_erros"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/ftf_erros"
                 android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/textView7"
                 android:layout_toRightOf="@+id/textView7"
-                android:layout_toEndOf="@+id/textView7" />
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </RelativeLayout>
 
         <Button
+            android:id="@+id/ftf_button_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="OK"
-            android:id="@+id/ftf_button_ok" />
+            android:text="OK" />
 
     </LinearLayout>
 

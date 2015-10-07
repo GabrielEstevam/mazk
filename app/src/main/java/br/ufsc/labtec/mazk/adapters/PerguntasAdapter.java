@@ -5,10 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -22,6 +19,7 @@ public class PerguntasAdapter extends ArrayAdapter<Pergunta> {
     private int resource;
     private ViewHolder perguntaView;
     private List<Pergunta> src;
+
     public PerguntasAdapter(Context context, int resource, List<Pergunta> objects) {
         super(context, resource, objects);
         this.resource = resource;
@@ -36,23 +34,20 @@ public class PerguntasAdapter extends ArrayAdapter<Pergunta> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Pergunta p = getItem(position);
-        if(convertView==null)
-        {
+        if (convertView == null) {
             perguntaView = new ViewHolder();
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater vi;
-            vi = (LayoutInflater)getContext().getSystemService(inflater);
-           convertView = vi.inflate(resource, parent, false);
-            perguntaView.setTitulo((TextView)convertView.findViewById(R.id.txtTituloPergunta));
-            perguntaView.setSubtitulo((TextView)convertView.findViewById(R.id.txtSubPergunta));
+            vi = (LayoutInflater) getContext().getSystemService(inflater);
+            convertView = vi.inflate(resource, parent, false);
+            perguntaView.setTitulo((TextView) convertView.findViewById(R.id.txtTituloPergunta));
+            perguntaView.setSubtitulo((TextView) convertView.findViewById(R.id.txtSubPergunta));
             convertView.setTag(perguntaView);
-        }
-        else
-        {
+        } else {
             perguntaView = (ViewHolder) convertView.getTag();
         }
         perguntaView.getTitulo().setText(p.getEnunciado());
-        if(p.getAreaList() != null) {
+        if (p.getAreaList() != null) {
             if (!p.getAreaList().isEmpty()) {
                 perguntaView.getSubtitulo().setText((p.getAtivo() ? "Ativo" : "Oculta") + " - Área: " + p.getAreaList().get(0).getNome());
                 return convertView;
@@ -62,8 +57,9 @@ public class PerguntasAdapter extends ArrayAdapter<Pergunta> {
         perguntaView.getSubtitulo().setText((p.getAtivo() ? "Ativo" : "Oculta"));
         return convertView;
     }
-    static class ViewHolder{
-      TextView titulo, subtitulo;
+
+    static class ViewHolder {
+        TextView titulo, subtitulo;
 
         public TextView getTitulo() {
             return titulo;
@@ -80,5 +76,7 @@ public class PerguntasAdapter extends ArrayAdapter<Pergunta> {
         public void setSubtitulo(TextView subtitulo) {
             this.subtitulo = subtitulo;
         }
-    };
+    }
+
+    ;
 }

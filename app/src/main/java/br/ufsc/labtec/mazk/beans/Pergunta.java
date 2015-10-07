@@ -1,12 +1,7 @@
 package br.ufsc.labtec.mazk.beans;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.google.gson.annotations.SerializedName;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
 import java.util.Date;
@@ -15,20 +10,20 @@ import java.util.List;
 /**
  * Created by Mihael Zamin on 25/03/2015.
  */
-@JsonIdentityInfo(generator=JSOGGenerator.class)
+@JsonIdentityInfo(generator = JSOGGenerator.class)
 //@JsonIgnoreProperties({"@ref"})
 public class Pergunta {
 
     private byte[] explicacao;
     private Integer idPergunta;
     private String enunciado;
-    
+
     private Boolean ativo;
-    
+
     private Double dificuldade;
-    
+
     private double tempoMedio;
-    
+
     private Date dataInserida;
     private List<Area> areaList;
     private List<Alternativa> alternativaList;

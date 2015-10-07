@@ -15,12 +15,19 @@ import retrofit.http.PUT;
  */
 public interface AreaResource {
     public final static String PATH = "/area";
+
     @GET(AreaResource.PATH)
     public void getAreas(Callback<List<Area>> cb);
+
     @POST(AreaResource.PATH)
     public void addArea(@Body Area t, Callback<Area> cb);
+
     @PUT(AreaResource.PATH)
     public void updateArea(Area t, Callback<Area> cb);
+
     @DELETE(AreaResource.PATH)
     public void deleteArea(Integer idArea);
+
+    @POST(AreaResource.PATH + "/find")
+    public void findArea(@Body String t, Callback<List<Area>> cb);
 }

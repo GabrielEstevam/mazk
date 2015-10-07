@@ -9,8 +9,7 @@ import java.util.Date;
  * Created by Mihael Zamin on 07/04/2015.
  */
 public class DefaultGson {
-    public static Gson getDefaultGson()
-    {
+    public static Gson getDefaultGson() {
         return new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").registerTypeAdapter(Date.class, new DateSerializer()).create();
 
     }

@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:weightSum="1">
 
     <EditText
+        android:id="@+id/etEnunciado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etEnunciado"
-        android:hint="Enunciado"/>
+        android:hint="Enunciado" />
 
     <CheckBox
+        android:id="@+id/cbAtivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ativo"
-        android:id="@+id/cbAtivo" />
+        android:text="Ativo" />
 
     <Spinner
+        android:id="@+id/spinArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinArea"
+        android:layout_marginTop="10dp"
         android:hint="Areas"
         android:spinnerMode="dialog"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"/>
+        android:visibility="visible" />
 
     <TextView
+        android:id="@+id/tvExplicacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adicionar Explicação"
-        android:id="@+id/tvExplicacao"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <ListView
+        android:id="@+id/lvAlternativa"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/lvAlternativa"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:choiceMode="singleChoice"
-       />
+        android:choiceMode="singleChoice" />
 
 </LinearLayout>

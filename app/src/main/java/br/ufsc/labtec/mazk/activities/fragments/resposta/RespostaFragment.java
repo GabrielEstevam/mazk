@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentQuestionCallback;
@@ -22,13 +21,9 @@ import br.ufsc.labtec.mazk.activities.fragments.listeners.resposta.OnAlternativa
 import br.ufsc.labtec.mazk.activities.fragments.listeners.resposta.OnAnsweredListener;
 import br.ufsc.labtec.mazk.adapters.AlternativaRespostaAdapter;
 import br.ufsc.labtec.mazk.beans.Alternativa;
-import br.ufsc.labtec.mazk.beans.Exemplo;
 import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Resposta;
 import br.ufsc.labtec.mazk.services.PerguntaResource;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * Created by Mihael Zamin on 14/04/2015.
@@ -43,39 +38,38 @@ public class RespostaFragment extends Fragment implements OnAlternativaSelected 
     private TextView tvEnunciado;
     private Resposta r;
     private ResourceCallback rc;
-    public static RespostaFragment newInstance()
-    {
-        RespostaFragment fragment = new RespostaFragment();
-        return fragment;
-    }
 
     public RespostaFragment() {
+    }
+
+    public static RespostaFragment newInstance() {
+        RespostaFragment fragment = new RespostaFragment();
+        return fragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_resposta, container, false);
-        viewAlternativas = (ListView)v.findViewById(R.id.listAlternativas);
+        viewAlternativas = (ListView) v.findViewById(R.id.listAlternativas);
         adapter = new AlternativaRespostaAdapter(getActivity());
         adapter.addOnAlternativaSelectedListener(this);
         adapter.setAlternativas(pergunta.getAlternativaList());
         viewAlternativas.setAdapter(adapter);
-        tvEnunciado = (TextView)v.findViewById(R.id.tvEnunciano);
+        tvEnunciado = (TextView) v.findViewById(R.id.tvEnunciano);
         tvEnunciado.setText(pergunta.getEnunciado());
-        tempoInicial = Calendar.getInstance().getTimeInMillis();
+        tempoInicial = System.nanoTime();
         return v;
     }
 
     @Override
     public void onAttach(Activity activity) {
-        try
-        {
-            onAnsweredListener = (OnAnsweredListener)activity;
-            this.pergunta = ((CurrentQuestionCallback)activity).getCurrentQuestion();
+        try {
+            onAnsweredListener = (OnAnsweredListener) activity;
+            this.pergunta = ((CurrentQuestionCallback) activity).getCurrentQuestion();
           /*  for(Alternativa a : pergunta.getAlternativaList())
                 a.setPergunta(pergunta);*/
-            rc = ((ResourceCallback)activity);
+            rc = ((ResourceCallback) activity);
             r = new Resposta();
             r.setPergunta(pergunta);
            /* for( Alternativa a : pergunta.getAlternativaList())
@@ -90,8 +84,7 @@ public class RespostaFragment extends Fragment implements OnAlternativaSelected 
             {
                 e.setPergunta(pergunta);
             }*/
-        }catch (ClassCastException e)
-        {
+        } catch (ClassCastException e) {
             Log.e("RF", "Activity must implement callbacks");
         }
         super.onAttach(activity);
@@ -99,9 +92,9 @@ public class RespostaFragment extends Fragment implements OnAlternativaSelected 
 
     @Override
     public void alternativaSelected(Alternativa a) {
-        Long delta = Calendar.getInstance().getTimeInMillis() - tempoInicial;
-        Double tempoDecorrido = delta.doubleValue()/1000;
-        if(a.getRespostaList() == null)
+        Long delta = System.nanoTime() - tempoInicial;
+        Double tempoDecorrido = delta.doubleValue() / 1e6;
+        if (a.getRespostaList() == null)
             a.setRespostaList(new ArrayList<Resposta>());
         a.getRespostaList().add(r);
         r.setAlternativa(a);
@@ -109,8 +102,8 @@ public class RespostaFragment extends Fragment implements OnAlternativaSelected 
         r.setData(new Date(Calendar.getInstance().getTimeInMillis()));
         onAnsweredListener.onAnswered(r);
     }
-   public interface ResourceCallback
-   {
-       public PerguntaResource getPerguntaResource();
-   }
+
+    public interface ResourceCallback {
+        public PerguntaResource getPerguntaResource();
+    }
 }

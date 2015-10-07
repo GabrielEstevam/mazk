@@ -5,7 +5,7 @@ import android.view.View;
 
 /**
  * Created by Mihael Zamin on 16/04/2015.
-*/
+ */
 public class ViewHolder {
     // I added a generic return type to reduce the casting noise in client code
     @SuppressWarnings("unchecked")

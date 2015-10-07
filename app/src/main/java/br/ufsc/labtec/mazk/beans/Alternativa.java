@@ -1,25 +1,18 @@
 package br.ufsc.labtec.mazk.beans;
 
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Mihael Zamin on 25/03/2015.
  */
-@JsonIdentityInfo(generator=JSOGGenerator.class)
+@JsonIdentityInfo(generator = JSOGGenerator.class)
 //@JsonIgnoreProperties({"@ref"})
 public class Alternativa {
-    
+
     private Integer idAlternativa;
     private Boolean correta;
     private String descricao;
@@ -43,7 +36,7 @@ public class Alternativa {
     }
 
     public Boolean isCorreta() {
-        if(correta == null)
+        if (correta == null)
             correta = Boolean.FALSE;
         return correta;
     }

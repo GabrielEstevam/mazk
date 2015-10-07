@@ -6,8 +6,7 @@
         <item name="actionBarStyle">@style/BlueActionBar</item>
     </style>
 
-    <style name="BlueActionBar"
-        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <style name="BlueActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
 
 
         <!-- Support library compatibility -->

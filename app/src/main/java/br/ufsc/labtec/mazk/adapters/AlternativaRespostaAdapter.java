@@ -6,15 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.TextView;
 
 import java.util.List;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.listeners.resposta.OnAlternativaSelected;
-import br.ufsc.labtec.mazk.activities.fragments.resposta.RespostaFragment;
 import br.ufsc.labtec.mazk.beans.Alternativa;
 import br.ufsc.labtec.mazk.view.custom.ViewHolder;
 
@@ -55,20 +51,18 @@ public class AlternativaRespostaAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        if(convertView == null)
-        {
+        if (convertView == null) {
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater vi;
-            vi = (LayoutInflater)getContext().getSystemService(inflater);
+            vi = (LayoutInflater) getContext().getSystemService(inflater);
             convertView = vi.inflate(R.layout.adapter_resposta, parent, false);
         }
-       Button alternativaButton = ViewHolder.get(convertView, R.id.button_alternativa);
+        Button alternativaButton = ViewHolder.get(convertView, R.id.button_alternativa);
 
         alternativaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(onAlternativaSelected != null)
-                {
+                if (onAlternativaSelected != null) {
                     onAlternativaSelected.alternativaSelected(getItem(position));
                 }
             }
@@ -76,18 +70,17 @@ public class AlternativaRespostaAdapter extends BaseAdapter {
         alternativaButton.setText(getItem(position).getDescricao());
         return convertView;
     }
-    public void setAlternativas(List<Alternativa> alternativas)
-    {
+
+    public void setAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;
 
         notifyDataSetChanged();
     }
-    public void addOnAlternativaSelectedListener(OnAlternativaSelected onAlternativaSelected)
-    {
+
+    public void addOnAlternativaSelectedListener(OnAlternativaSelected onAlternativaSelected) {
         this.onAlternativaSelected = onAlternativaSelected;
         notifyDataSetChanged();
     }
-
 
 
 }

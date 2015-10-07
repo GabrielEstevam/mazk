@@ -4,26 +4,22 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.listeners.OnUserIdentifiedListener;
-import br.ufsc.labtec.mazk.beans.Tipo;
 import br.ufsc.labtec.mazk.beans.Usuario;
 import br.ufsc.labtec.mazk.services.PublicResource;
 import br.ufsc.labtec.mazk.services.util.PublicService;
@@ -47,14 +43,13 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
     private boolean emailValid, senhaValid, senhaMatch;
 
 
+    public RegisterFragment() {
+        // Required empty public constructor
+    }
 
     public static RegisterFragment newInstance() {
         RegisterFragment fragment = new RegisterFragment();
         return fragment;
-    }
-
-    public RegisterFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -64,29 +59,28 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
         emailValid = senhaValid = senhaMatch = false;
-        View v =  inflater.inflate(R.layout.fragment_register, container, false);
+        View v = inflater.inflate(R.layout.fragment_register, container, false);
         pr = new PublicService().createService(getString(R.string.server_url));
-        dataDeNascimento = (DateDisplayPicker)v.findViewById(R.id.dataDeNascimento);
+        dataDeNascimento = (DateDisplayPicker) v.findViewById(R.id.dataDeNascimento);
         txtSenha = new EditText[2];
-        txtSenha[0] = (EditText)v.findViewById(R.id.password);
+        txtSenha[0] = (EditText) v.findViewById(R.id.password);
         txtSenha[0].setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
 
-                if(!hasFocus)
-                {
-                    if(txtSenha[0].getText().toString().length() < 4) {
+                if (!hasFocus) {
+                    if (txtSenha[0].getText().toString().length() < 4) {
                         txtSenha[0].setError("Senha muito curta");
                         senhaValid = false;
                     } else senhaValid = true;
                 }
             }
         });
-        txtSenha[1]=(EditText)v.findViewById(R.id.confirmPassword);
+        txtSenha[1] = (EditText) v.findViewById(R.id.confirmPassword);
         txtSenha[1].addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -100,8 +94,7 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!TextUtils.equals(s.toString(), txtSenha[0].getText().toString()))
-                {
+                if (!TextUtils.equals(s.toString(), txtSenha[0].getText().toString())) {
                     senhaMatch = false;
                     txtSenha[1].setError("As senhas não batem.");
                 } else senhaMatch = true;
@@ -124,7 +117,7 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
             @Override
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(s.toString())) {
-                    if(s.toString().contains("@")) {
+                    if (s.toString().contains("@")) {
                         pr.isExistentEmail(s.toString(), new Callback<Boolean>() {
                             @Override
                             public void success(Boolean aBoolean, Response response) {
@@ -139,13 +132,12 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
 
                             }
                         });
-                    } else
-                    {
+                    } else {
                         emailValid = false;
                         txtEmail.setError("Email inválido");
                     }
 
-                } else{
+                } else {
                     emailValid = false;
                     txtEmail.setError("Campo não preenchido");
                 }
@@ -185,9 +177,9 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
                 }
             }
         });*/
-        txtNome = (EditText)v.findViewById(R.id.name);
+        txtNome = (EditText) v.findViewById(R.id.name);
 
-        btnRegistrar = (Button)v.findViewById(R.id.registrar);
+        btnRegistrar = (Button) v.findViewById(R.id.registrar);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,7 +189,7 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
         });
         registerForm = v.findViewById(R.id.registerForm);
         progress = v.findViewById(R.id.progressBar);
-       return v;
+        return v;
 
     }
 
@@ -230,9 +222,9 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
     public void failure(RetrofitError error) {
         Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
     }
-    private void attemptRegister()
-    {
-        if(validateFields()) {
+
+    private void attemptRegister() {
+        if (validateFields()) {
             showProgress(true);
             String nome = txtNome.getText().toString();
             String email = txtEmail.getText().toString();
@@ -244,41 +236,37 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
 
         }
     }
-    private boolean validateFields()
-    {
+
+    private boolean validateFields() {
 
         String nome = txtNome.getText().toString();
         String senha = txtSenha[0].getText().toString();
         String confirmaSenha = txtSenha[1].getText().toString();
 
         boolean cancel = false;
-        if(TextUtils.isEmpty(nome) )
-        {
+        if (TextUtils.isEmpty(nome)) {
             txtNome.setError("Preencha o campo nome");
             cancel = true;
         }
-        if(TextUtils.isEmpty(senha)|| TextUtils.isEmpty(confirmaSenha) || !senhaValid)
-        {
+        if (TextUtils.isEmpty(senha) || TextUtils.isEmpty(confirmaSenha) || !senhaValid) {
             txtSenha[0].setError("Digite uma senha válida com mais de 4 caracteres");
             cancel = true;
-        }else if(!TextUtils.equals(senha, confirmaSenha) || !senhaMatch)
-        {
+        } else if (!TextUtils.equals(senha, confirmaSenha) || !senhaMatch) {
             cancel = true;
             txtSenha[1].setError("A senha não confere");
         }
-        if(TextUtils.isEmpty(dataDeNascimento.getText().toString()))
-        {
+        if (TextUtils.isEmpty(dataDeNascimento.getText().toString())) {
             dataDeNascimento.setError("Entre com sua data de nascimento");
             cancel = true;
         }
-        if(!emailValid)
-        {
+        if (!emailValid) {
             cancel = true;
         }
 
         return !cancel;
 
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow

@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Checkable;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -13,14 +12,12 @@ import java.util.List;
 
 /**
  * Created by Mihael Zamin on 09/04/2015.
- */public class CheckableRelativeLayout extends RelativeLayout implements Checkable {
+ */
+public class CheckableRelativeLayout extends RelativeLayout implements Checkable {
 
-    /**
-     * Interface definition for a callback to be invoked when the checked state of a CheckableRelativeLayout changed.
-     */
-    public static interface OnCheckedChangeListener {
-        public void onCheckedChanged(CheckableRelativeLayout layout, boolean isChecked);
-    }
+    private boolean isChecked;
+    private List<Checkable> checkableViews;
+    private OnCheckedChangeListener onCheckedChangeListener;
 
     public CheckableRelativeLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -107,7 +104,10 @@ import java.util.List;
         }
     }
 
-    private boolean isChecked;
-    private List<Checkable> checkableViews;
-    private OnCheckedChangeListener onCheckedChangeListener;
+    /**
+     * Interface definition for a callback to be invoked when the checked state of a CheckableRelativeLayout changed.
+     */
+    public static interface OnCheckedChangeListener {
+        public void onCheckedChanged(CheckableRelativeLayout layout, boolean isChecked);
+    }
 }
