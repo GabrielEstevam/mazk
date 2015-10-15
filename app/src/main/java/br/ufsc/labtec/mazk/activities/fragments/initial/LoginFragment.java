@@ -32,7 +32,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-
+import com.beardedhen.androidbootstrap.*;
 /**
  * A login screen that offers login via email/password.
  */
@@ -40,8 +40,8 @@ public class LoginFragment extends Fragment implements Callback<Usuario> {
 
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
+    private BootstrapEditText mEmailView;
+    private BootstrapEditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
     private PublicResource pr;
@@ -62,12 +62,12 @@ public class LoginFragment extends Fragment implements Callback<Usuario> {
         serverUrl = getString(R.string.server_url);
         txtRegister = (TextView) v.findViewById(R.id.registrar);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) v.findViewById(R.id.email);
+        mEmailView = (BootstrapEditText) v.findViewById(R.id.email);
 
 
         pr = new PublicService().createService(serverUrl);
         us = new UsuarioService();
-        mPasswordView = (EditText) v.findViewById(R.id.password);
+        mPasswordView = (BootstrapEditText) v.findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -86,7 +86,7 @@ public class LoginFragment extends Fragment implements Callback<Usuario> {
             }
         });
 
-        Button mEmailSignInButton = (Button) v.findViewById(R.id.email_sign_in_button);
+        BootstrapButton mEmailSignInButton = (BootstrapButton) v.findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

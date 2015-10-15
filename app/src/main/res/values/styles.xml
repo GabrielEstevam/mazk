@@ -10,6 +10,6 @@
 
 
         <!-- Support library compatibility -->
-        <item name="background">@android:color/holo_blue_light</item>
+        <item name="background">@android:color/darker_gray</item>
     </style>
 </resources>
