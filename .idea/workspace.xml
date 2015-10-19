@@ -4,6 +4,7 @@
     <shared>
       <config />
     </shared>
+      <<<<<<<Updated upstream>
     <layouts>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
         <config>
@@ -65,6 +66,44 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/classes/androidTest/debug/com/example/medit/test/R.class" afterPath="$PROJECT_DIR$/medit/build/intermediates/classes/androidTest/debug/com/example/medit/test/R.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/classes/debug/com/example/medit/R.class" afterPath="$PROJECT_DIR$/medit/build/intermediates/classes/debug/com/example/medit/R.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/classes/release/com/example/medit/R.class" afterPath="$PROJECT_DIR$/medit/build/intermediates/classes/release/com/example/medit/R.class" />
+=======
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5e3c9c4-9336-4723-a44f-69f3437c9d7b" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\appcompat_v7_22_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\converter_jackson_1_9_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\graphview_4_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\gson_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\jackson_annotations_2_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\jackson_core_2_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\jackson_databind_2_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\jackson_jsog_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\okhttp_2_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\okio_1_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_ads_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_analytics_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_appindexing_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_appstate_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_base_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_cast_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_drive_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_fitness_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_games_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_gcm_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_identity_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_location_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_maps_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_nearby_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_panorama_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_plus_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_safetynet_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_wallet_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\play_services_wearable_7_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\retrofit_1_9_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\support_annotations_22_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mihael Zamin\dev\StudioProjects\mazk\.idea\libraries\support_v4_22_0_0.xml" afterPath="" />
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/medit/build/intermediates/bundles/debug/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/medit/build/intermediates/bundles/release/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/outputs/aar/medit-debug.aar" afterPath="$PROJECT_DIR$/medit/build/outputs/aar/medit-debug.aar" />
@@ -82,7 +121,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/generated/source/buildConfig/androidTest/debug/com/example/medit/test/BuildConfig.java" afterPath="$PROJECT_DIR$/medit/build/generated/source/buildConfig/androidTest/debug/com/example/medit/test/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/generated/source/buildConfig/debug/com/example/medit/BuildConfig.java" afterPath="$PROJECT_DIR$/medit/build/generated/source/buildConfig/debug/com/example/medit/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/generated/source/buildConfig/release/com/example/medit/BuildConfig.java" afterPath="$PROJECT_DIR$/medit/build/generated/source/buildConfig/release/com/example/medit/BuildConfig.java" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/br/ufsc/labtec/mazk/activities/fragments/initial/LoginFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/br/ufsc/labtec/mazk/activities/fragments/initial/LoginFragment.java" />
+=======
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/aidl/android/support/v4/media/MediaMetadataCompat.aidl" afterPath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/aidl/android/support/v4/media/MediaMetadataCompat.aidl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/aidl/android/support/v4/media/session/MediaSessionCompat.aidl" afterPath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/aidl/android/support/v4/media/session/MediaSessionCompat.aidl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl" afterPath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl" />
@@ -325,24 +367,33 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/layout/activity_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/layout/activity_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/layout/activity_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" />
+=======
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/bundles/debug/res/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/bundles/debug/res/layout/fragment_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/bundles/release/res/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/bundles/release/res/layout/fragment_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/layout/fragment_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/layout/fragment_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/layout/fragment_main.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_resposta.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_resposta.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+=======
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/bundles/debug/res/menu/main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/bundles/debug/res/menu/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/bundles/release/res/menu/main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/bundles/release/res/menu/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/menu/main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/menu/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/menu/main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/menu/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/menu/main.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/menu/main.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mazk.iml" afterPath="$PROJECT_DIR$/mazk.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/medit.iml" afterPath="$PROJECT_DIR$/medit/medit.iml" />
+=======
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeAssets/release/merger.xml" />
@@ -351,10 +402,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeResourcesrelease/merger.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/incremental/mergeResourcesrelease/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/incremental/packageResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/incremental/packageResourcesdebug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/incremental/packageResourcesrelease/merger.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/incremental/packageResourcesrelease/merger.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+=======
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/layout/support_simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/layout/support_simple_spinner_dropdown_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/layout/support_simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/layout/support_simple_spinner_dropdown_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml" />
@@ -726,7 +780,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/values/values.xml" afterPath="$PROJECT_DIR$/medit/build/intermediates/res/merged/release/values/values.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+=======
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mazk.iws" />
@@ -755,6 +812,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< Updated upstream
       <file leaf-file-name="fragment_resposta.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_resposta.xml">
           <provider selected="true" editor-type-id="android-designer">
@@ -827,6 +885,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="12" column="58" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="58" />
+=======
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/ufsc/labtec/mazk/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_login.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -2860,7 +2938,12 @@
     </option>
     <option name="modificationStamps">
       <map>
+<<<<<<< Updated upstream
         <entry key="C:\Users\gabri_000\Documents\GitHub\mazk" value="5779203247312" />
+=======
+        <entry key="C:\Users\Gabriel\Documents\GitHub\mazk" value="5740227442500" />
+        <entry key="C:\Users\Mihael Zamin\dev\StudioProjects\mazk" value="5779712236631" />
+>>>>>>> Stashed changes
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3319,10 +3402,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1060" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -3348,6 +3431,11 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
+<<<<<<< Updated upstream
+=======
+      <pane id="Scope" />
+      <pane id="Scratches" />
+>>>>>>> Stashed changes
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3355,6 +3443,7 @@
               <option name="myItemId" value="mazk" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+<<<<<<< Updated upstream
             <PATH_ELEMENT>
               <option name="myItemId" value="Gradle Scripts" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
@@ -3394,6 +3483,11 @@
       </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> Stashed changes
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -3402,6 +3496,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
+<<<<<<< Updated upstream
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="3230e1d2b1c71151" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23_x86" />
     <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/Bootstrap_Mazk" />
@@ -3410,6 +3505,8 @@
     <key name="android.template.packageName">
       <recent name="br.ufsc.labtec.mazk" />
     </key>
+=======
+>>>>>>> Stashed changes
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -3607,15 +3704,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3636,6 +3742,28 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3721,7 +3849,79 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< Updated upstream
           <caret line="12" column="58" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="58" />
+=======
+          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/ufsc/labtec/mazk/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/ufsc/labtec/mazk/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/resposta_certa.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/ufsc/labtec/mazk/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
