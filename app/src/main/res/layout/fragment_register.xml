@@ -2,7 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.ufsc.labtec.mazk.activities.fragments.initial.RegisterFragment">
+    tools:context="br.ufsc.labtec.mazk.activities.fragments.initial.RegisterFragment"
+
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrapthumbnail="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrapthumnail="http://schemas.android.com/apk/res-auto"
+
+    android:background="@android:color/background_light"
+    >
 
 
     <ProgressBar
@@ -15,83 +24,146 @@
         android:indeterminate="false"
         android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/registerForm"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top"
-        android:fillViewport="false">
+        android:padding="10dp">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1">
+        <ScrollView
+            android:id="@+id/registerForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|top"
+            android:fillViewport="false">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Registro"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:weightSum="1">
 
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="Nome Completo"
-                android:inputType="textPersonName"
-                android:singleLine="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="Registro"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/bbutton_primary_pressed"
+                    android:paddingBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="28dp"
+                    />
 
+                <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:hint="Nome Completo"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:padding="10dp"
+                    android:textSize="18dp"
+                    />
 
-            <br.ufsc.labtec.mazk.view.custom.DateDisplayPicker
-                android:id="@+id/dataDeNascimento"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="2.90"
-                android:hint="Data de Nascimento" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+                </LinearLayout>
 
-            <AutoCompleteTextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|center_horizontal"
-                android:hint="@string/prompt_email"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
+                <br.ufsc.labtec.mazk.view.custom.DateDisplayPicker
+                    android:id="@+id/dataDeNascimento"
+                    style="@android:style/Widget.Holo.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="2.90"
+                    android:hint="Data de Nascimento"
+                    android:textSize="18dp" />
 
-                android:singleLine="true" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+                </LinearLayout>
 
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true" />
+                <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="10dp"
+                    android:textSize="18dp"
+                    />
 
-            <EditText
-                android:id="@+id/confirmPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Confirme Senha"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/registrar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Registrar" />
-        </LinearLayout>
-    </ScrollView>
+                <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="10dp"
+                    android:textSize="18dp"
+                    />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+                </LinearLayout>
+
+                <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirme Senha"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="10dp"
+                    android:textSize="18dp"
+                    />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+                </LinearLayout>
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/registrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Registrar"
+                    android:textStyle="bold"
+                    bootstrapbutton:bb_roundedCorners="true"
+                    bootstrapbutton:bb_type="primary"
+                    android:textSize="24dp"
+                    />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </FrameLayout>

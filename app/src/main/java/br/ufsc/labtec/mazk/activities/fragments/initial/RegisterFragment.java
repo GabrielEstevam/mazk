@@ -28,12 +28,14 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+import com.beardedhen.androidbootstrap.*;
+
 public class RegisterFragment extends Fragment implements Callback<Usuario> {
 
-    private AutoCompleteTextView txtEmail;
-    private EditText txtSenha[];
-    private Button btnRegistrar;
-    private EditText txtNome;
+    private BootstrapEditText txtEmail;
+    private BootstrapEditText txtSenha[];
+    private BootstrapButton btnRegistrar;
+    private BootstrapEditText txtNome;
     private View registerForm;
     private View progress;
     private PublicResource pr;
@@ -66,8 +68,8 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
         View v = inflater.inflate(R.layout.fragment_register, container, false);
         pr = new PublicService().createService(getString(R.string.server_url));
         dataDeNascimento = (DateDisplayPicker) v.findViewById(R.id.dataDeNascimento);
-        txtSenha = new EditText[2];
-        txtSenha[0] = (EditText) v.findViewById(R.id.password);
+        txtSenha = new BootstrapEditText[2];
+        txtSenha[0] = (BootstrapEditText) v.findViewById(R.id.password);
         txtSenha[0].setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -80,7 +82,7 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
                 }
             }
         });
-        txtSenha[1] = (EditText) v.findViewById(R.id.confirmPassword);
+        txtSenha[1] = (BootstrapEditText) v.findViewById(R.id.confirmPassword);
         txtSenha[1].addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -102,7 +104,7 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
             }
         });
 
-        txtEmail = (AutoCompleteTextView) v.findViewById(R.id.email);
+        txtEmail = (BootstrapEditText) v.findViewById(R.id.email);
         txtEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -177,9 +179,9 @@ public class RegisterFragment extends Fragment implements Callback<Usuario> {
                 }
             }
         });*/
-        txtNome = (EditText) v.findViewById(R.id.name);
+        txtNome = (BootstrapEditText) v.findViewById(R.id.name);
 
-        btnRegistrar = (Button) v.findViewById(R.id.registrar);
+        btnRegistrar = (BootstrapButton) v.findViewById(R.id.registrar);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
