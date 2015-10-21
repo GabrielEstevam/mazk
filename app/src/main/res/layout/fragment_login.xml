@@ -36,40 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"></LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <com.beardedhen.androidbootstrap.BootstrapThumbnail
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            bootstrapthumbnail:bt_width="150dp"
-            bootstrapthumbnail:bt_height="150dp"
-            android:layout_gravity="center_horizontal"
-            bootstrapthumbnail:bt_image="@mipmap/logo_mazk"
-            android:padding="2dp"
-            bootstrapthumbnail:bt_roundedCorners="true"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="Mazk STI"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ECF0F1"
-            android:textStyle="bold"
-            android:textSize="40dp"
-            android:typeface="normal"
-            android:textIsSelectable="false"
-            android:visibility="visible" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,6 +48,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <com.beardedhen.androidbootstrap.BootstrapThumbnail
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                bootstrapthumbnail:bt_width="150dp"
+                bootstrapthumbnail:bt_height="150dp"
+                android:layout_gravity="center_horizontal"
+                bootstrapthumbnail:bt_image="@mipmap/logo_mazk"
+                android:padding="2dp"
+                bootstrapthumbnail:bt_roundedCorners="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Mazk STI"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ECF0F1"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:typeface="normal"
+                android:textIsSelectable="false"
+                android:visibility="visible"
+                android:paddingBottom="10dp" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -157,7 +150,7 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:orientation="vertical"

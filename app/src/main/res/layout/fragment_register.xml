@@ -10,7 +10,7 @@
     xmlns:bootstrapthumbnail="http://schemas.android.com/apk/res-auto"
     xmlns:bootstrapthumnail="http://schemas.android.com/apk/res-auto"
 
-    android:background="@android:color/background_light"
+    android:background="#2C3E50"
     >
 
 
@@ -50,7 +50,7 @@
                     android:layout_marginTop="25dp"
                     android:text="Registro"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/bbutton_primary_pressed"
+                    android:textColor="#DADFE1"
                     android:paddingBottom="10dp"
                     android:textStyle="bold"
                     android:textSize="28dp"
@@ -67,8 +67,7 @@
                     android:inputType="textPersonName"
                     android:singleLine="true"
                     android:padding="10dp"
-                    android:textSize="18dp"
-                    />
+                    android:textSize="18dp" />
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -85,7 +84,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="2.90"
                     android:hint="Data de Nascimento"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:textColorHint="@color/bright_foreground_material_dark" />
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -159,7 +159,7 @@
                     android:text="Registrar"
                     android:textStyle="bold"
                     bootstrapbutton:bb_roundedCorners="true"
-                    bootstrapbutton:bb_type="primary"
+                    bootstrapbutton:bb_type="danger"
                     android:textSize="24dp"
                     />
             </LinearLayout>
