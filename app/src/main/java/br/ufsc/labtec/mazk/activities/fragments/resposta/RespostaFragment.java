@@ -14,6 +14,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentQuestionCallback;
@@ -54,6 +57,7 @@ public class RespostaFragment extends Fragment implements OnAlternativaSelected 
         viewAlternativas = (ListView) v.findViewById(R.id.listAlternativas);
         adapter = new AlternativaRespostaAdapter(getActivity());
         adapter.addOnAlternativaSelectedListener(this);
+        pergunta.setAlternativaList(new ArrayList<>(new LinkedHashSet<>(pergunta.getAlternativaList())));
         adapter.setAlternativas(pergunta.getAlternativaList());
         viewAlternativas.setAdapter(adapter);
         tvEnunciado = (TextView) v.findViewById(R.id.tvEnunciano);

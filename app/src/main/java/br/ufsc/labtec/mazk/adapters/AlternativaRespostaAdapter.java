@@ -1,6 +1,7 @@
 package br.ufsc.labtec.mazk.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,6 @@ public class AlternativaRespostaAdapter extends BaseAdapter {
 
     public void setAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;
-
         notifyDataSetChanged();
     }
 

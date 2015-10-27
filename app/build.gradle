@@ -8,7 +8,7 @@ android {
         applicationId "br.ufsc.labtec.mazk"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 1
+        versionCode 2
         versionName "1.0"
     }
     buildTypes {
@@ -39,4 +39,6 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
     compile 'com.beardedhen:androidbootstrap:1.1.1'
+
+
 }

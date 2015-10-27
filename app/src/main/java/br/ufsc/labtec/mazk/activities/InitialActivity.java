@@ -35,6 +35,7 @@ public class InitialActivity extends Activity implements OnUserIdentifiedListene
 
     @Override
     public void userIdentified(Usuario usuario) {
+
         Intent i = new Intent(InitialActivity.this, MainActivity.class);
 
         ObjectMapper mapper = new ObjectMapper();

@@ -101,7 +101,7 @@
                 android:padding="4dp">
             </LinearLayout>
 
-            <!--android:text="mihael.zaminsousa@gmail.com"-->
+
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
@@ -116,7 +116,7 @@
                 bootstrapbutton:be_roundedCorners="false"
                 android:padding="10dp"
                 android:textSize="18dp" />
-            <!--android:text="mih@el1904"-->
+
 
             <LinearLayout
                 android:orientation="vertical"
