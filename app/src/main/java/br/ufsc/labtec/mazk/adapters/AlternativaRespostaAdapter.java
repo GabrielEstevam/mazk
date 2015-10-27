@@ -45,6 +45,7 @@ public class AlternativaRespostaAdapter extends BaseAdapter {
         return alternativas.get(position);
     }
 
+
     @Override
     public long getItemId(int position) {
         return position;

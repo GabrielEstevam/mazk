@@ -64,6 +64,7 @@ public class RespostaFragment extends Fragment implements OnAlternativaSelected 
         tvEnunciado.setText(pergunta.getEnunciado());
         tempoInicial = System.nanoTime();
         return v;
+
     }
 
     @Override
