@@ -6,6 +6,8 @@
     android:weightSum="1"
     android:padding="10dp"
     android:background="#2C3E50"
+
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
     >
 
     <LinearLayout
@@ -90,10 +92,13 @@
 
     </LinearLayout>
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/button_nextfragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Próxima Pergunta" />
+        android:text="Próxima Pergunta"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_type="success"
+        />
 
 </LinearLayout>

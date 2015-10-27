@@ -21,6 +21,8 @@ import br.ufsc.labtec.mazk.beans.Alternativa;
 import br.ufsc.labtec.mazk.beans.Resposta;
 import medit.core.HtmlBuilder;
 
+import com.beardedhen.androidbootstrap.*;
+
 /**
  * Created by Mihael Zamin on 22/04/2015.
  */
@@ -47,7 +49,7 @@ public class RespostaErradaFragment extends Fragment {
                 break;
             }
         }
-        Button btn = (Button) v.findViewById(R.id.button_nextfragment);
+        BootstrapButton btn = (BootstrapButton) v.findViewById(R.id.button_nextfragment);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
