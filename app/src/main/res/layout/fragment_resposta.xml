@@ -3,12 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#2C3E50"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="128dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#2C3E50"
+        >
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,15 +26,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="enunciado"
+                android:textColor="#DADFE1"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </ScrollView>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"></LinearLayout>
+
     <ListView
         android:id="@+id/listAlternativas"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:choiceMode="singleChoice" />
+        android:choiceMode="singleChoice"
+        android:background="#2C3E50"
+        />
 
 </LinearLayout>

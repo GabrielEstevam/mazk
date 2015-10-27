@@ -1,33 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrapthumnail="http://schemas.android.com/apk/res-auto"
+
     android:id="@+id/layout_stats"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@android:color/background_light"
+    android:padding="10dp">
+    >
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp" />
-
-    <TextView
-        android:id="@+id/txtStatus"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:background="@android:color/background_light">
 
-    <TextView
-        android:id="@+id/start_tentativa"
-        android:layout_width="wrap_content"
+        <com.beardedhen.androidbootstrap.FontAwesomeText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#9b9b9b"
+            fontawesometext:fa_icon="fa-user"
+            />
+        <TextView android:text="Usuário" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_usuario"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:textColor="#9b9b9b"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ddd"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_tentativa"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/link_text_material_light"
-        android:textStyle="bold" />
+        android:padding="5dp"
+        android:paddingLeft="10dp"
+        android:background="@android:color/background_light"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:id="@+id/txt_nome"
+            android:textSize="24dp"
+            android:textColor="#9b9b9b"
+            android:paddingLeft="5dp" />
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="18dp"
+            android:textColor="#9b9b9b"
+            android:paddingLeft="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingTop="5dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ddd"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        >
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graph"
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:layout_gravity="center"
+            android:background="@android:color/background_light"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/start_tentativa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/start_tentativa"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_type="success"
+            android:textSize="24dp"
+            bootstrapbutton:bb_icon_right="fa-arrow-right"
+            />
+    </LinearLayout>
 
 </LinearLayout>

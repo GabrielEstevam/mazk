@@ -15,6 +15,7 @@ import br.ufsc.labtec.mazk.activities.fragments.listeners.resposta.OnAlternativa
 import br.ufsc.labtec.mazk.beans.Alternativa;
 import br.ufsc.labtec.mazk.view.custom.ViewHolder;
 
+import com.beardedhen.androidbootstrap.*;
 /**
  * Created by Mihael Zamin on 18/04/2015.
  */
@@ -59,7 +60,7 @@ public class AlternativaRespostaAdapter extends BaseAdapter {
             vi = (LayoutInflater) getContext().getSystemService(inflater);
             convertView = vi.inflate(R.layout.adapter_resposta, parent, false);
         }
-        Button alternativaButton = ViewHolder.get(convertView, R.id.button_alternativa);
+        BootstrapButton alternativaButton = ViewHolder.get(convertView, R.id.button_alternativa);
 
         alternativaButton.setOnClickListener(new View.OnClickListener() {
             @Override

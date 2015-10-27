@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
@@ -29,6 +30,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+import com.beardedhen.androidbootstrap.*;
 /**
  * Created by Mihael Zamin on 07/04/2015.
  */
@@ -36,7 +38,9 @@ public class StatsFragment extends Fragment {
     private Usuario u;
     private GraphView graph;
     private TextView txtStatus;
-    private TextView txtStart;
+    private TextView txt_usuario;
+    private TextView txt_nome;
+    private BootstrapButton txtStart;
     private OnStartNewTentativa osnt;
 
     public static StatsFragment newInstance() {
@@ -46,9 +50,12 @@ public class StatsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View v = inflater.inflate(R.layout.fragment_stats, container, false);
+        txt_usuario = (TextView) v.findViewById(R.id.txt_usuario);
+        txt_nome = (TextView) v.findViewById(R.id.txt_nome);
         graph = (GraphView) v.findViewById(R.id.graph);
-        txtStart = (TextView) v.findViewById(R.id.start_tentativa);
+        txtStart = (BootstrapButton) v.findViewById(R.id.start_tentativa);
         txtStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +64,10 @@ public class StatsFragment extends Fragment {
 
             }
         });
+        String tipo = u.getTipo().getNome();
+        txt_usuario.setText(tipo);
+        String nome = u.getNome();
+        txt_nome.setText(nome);
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
         UsuarioResource ur = new UsuarioService().createService(getString(R.string.server_url), u.getEmail(), u.getSenha());
         ur.login(new Callback<Usuario>() {
@@ -78,7 +89,7 @@ public class StatsFragment extends Fragment {
                         LineGraphSeries<DataPoint> serie = new LineGraphSeries<DataPoint>(array);
                         graph.addSeries(serie);
                         NumberFormat formatter = new DecimalFormat("##.##");
-                        txtStatus.setText("Seu nível de experiência: " + formatter.format(u.getExperiencia().doubleValue()));
+                        txtStatus.setText("Nível de experiência: " + formatter.format(u.getExperiencia().doubleValue()));
                     } else txtStatus.setText("Você não possui tentativas");
                 } catch (NullPointerException e) {
                     txtStatus.setText("Você não possui tentativas");

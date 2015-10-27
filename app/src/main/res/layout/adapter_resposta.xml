@@ -2,13 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    >
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/button_alternativa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="New Button"
-
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_type="warning"
         />
 </LinearLayout>
