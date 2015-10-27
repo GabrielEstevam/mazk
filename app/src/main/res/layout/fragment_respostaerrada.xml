@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:padding="10dp"
+    android:background="#2C3E50"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,53 +19,67 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Resposta Errada."
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="Resposta Errada"
+            android:textColor="#DADFE1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sua resposta:"
+            android:textColor="#DADFE1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/alternativa_selecionada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text" />
+            android:text="New Text"
+            android:textColor="#DADFE1"
+            android:paddingTop="5dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alternativa correta:"
+            android:textColor="#DADFE1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/fr_alternativa_certa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text" />
+            android:text="New Text"
+            android:textColor="#DADFE1"
+            android:paddingTop="5dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="345dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/fr_explicacao"
