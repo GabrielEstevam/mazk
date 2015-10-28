@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Tentativa;
+import br.ufsc.labtec.mazk.beans.dto.ErrosEAcertos;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
@@ -22,5 +23,5 @@ public interface RespostasResource {
     public void getTentativa(Callback<Tentativa> cb);
 
     @POST(PATH)
-    public void addRespostas(@Body Tentativa tentativa, Callback<Tentativa> cb);
+    public void addRespostas(@Body Tentativa tentativa, Callback<ErrosEAcertos> cb);
 }

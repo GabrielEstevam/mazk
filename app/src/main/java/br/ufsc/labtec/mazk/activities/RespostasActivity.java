@@ -3,6 +3,7 @@ package br.ufsc.labtec.mazk.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import br.ufsc.labtec.mazk.R;
 import br.ufsc.labtec.mazk.activities.fragments.ProgressFragment;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.ChangeActivityCallback;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.CurrentQuestionCallback;
+import br.ufsc.labtec.mazk.activities.fragments.callbacks.ErrosEAcertosCallback;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.NextFragmentRequester;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.RespostaCallback;
 import br.ufsc.labtec.mazk.activities.fragments.callbacks.TentativaCallback;
@@ -28,6 +30,7 @@ import br.ufsc.labtec.mazk.beans.Pergunta;
 import br.ufsc.labtec.mazk.beans.Resposta;
 import br.ufsc.labtec.mazk.beans.Tentativa;
 import br.ufsc.labtec.mazk.beans.Usuario;
+import br.ufsc.labtec.mazk.beans.dto.ErrosEAcertos;
 import br.ufsc.labtec.mazk.beans.json.DefaultGson;
 import br.ufsc.labtec.mazk.services.PerguntaResource;
 import br.ufsc.labtec.mazk.services.RespostasResource;
@@ -40,7 +43,7 @@ import retrofit.client.Response;
 /**
  * Created by Mihael Zamin on 13/04/2015.
  */
-public class RespostasActivity extends Activity implements RespostaCallback, NextFragmentRequester, CurrentQuestionCallback, OnAnsweredListener, TentativaCallback, ChangeActivityCallback, RespostaFragment.ResourceCallback {
+public class RespostasActivity extends Activity implements ErrosEAcertosCallback, RespostaCallback, NextFragmentRequester, CurrentQuestionCallback, OnAnsweredListener, TentativaCallback, ChangeActivityCallback, RespostaFragment.ResourceCallback {
     private RespostasResource rr;
     private Usuario usuario;
     private Tentativa t;
@@ -48,6 +51,7 @@ public class RespostasActivity extends Activity implements RespostaCallback, Nex
     private Resposta current;
     private List<Resposta> respostasList;
     private PerguntaResource pr;
+    private ErrosEAcertos errosEAcertos;
 
 
     @Override
@@ -153,14 +157,16 @@ public class RespostasActivity extends Activity implements RespostaCallback, Nex
         if (!perguntaStack.empty())
             startNewFragment();
         else {
+            System.gc();
             getFragmentManager().beginTransaction().replace(R.id.resposta_container, new ProgressFragment()).commit();
             t.setRespostaList(respostasList);
-            rr.addRespostas(t, new Callback<Tentativa>() {
+            Log.i("RA", "Enviando respostas");
+            rr.addRespostas(t, new Callback<ErrosEAcertos>() {
                 @Override
-                public void success(Tentativa tentativa, Response response) {
-                    RespostasActivity.this.t = tentativa;
-                    for (Resposta r : RespostasActivity.this.t.getRespostaList())
-                        r.setTentativa(RespostasActivity.this.t);
+                public void success(ErrosEAcertos errosEAcertos, Response response) {
+                    Log.i("RA", "Tentativa enviada com sucesso");
+                    RespostasActivity.this.errosEAcertos = errosEAcertos;
+                    Log.i("RA", "Trocando fragmento para o final");
                     getFragmentManager().beginTransaction().replace(R.id.resposta_container, new TentativaFinishedFragment()).commit();
 
                 }
@@ -174,6 +180,11 @@ public class RespostasActivity extends Activity implements RespostaCallback, Nex
             });
         }
     }
+    public ErrosEAcertos getErrosEAcertos()
+    {
+        return errosEAcertos;
+    }
+
 
     @Override
     public Resposta getCurrentResposta() {
