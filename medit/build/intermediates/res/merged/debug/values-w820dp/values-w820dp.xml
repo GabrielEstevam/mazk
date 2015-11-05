@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Mihael%20Zamin/dev/StudioProjects/mazk/medit/src/main/res/values-w820dp/dimens.xml -->
+    <!-- From: file:/C:/Users/gabri_000/Documents/GitHub/mazk/medit/src/main/res/values-w820dp/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">64dp</dimen>
 </resources>

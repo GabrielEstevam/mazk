@@ -13,5 +13,5 @@
         android:text="New Button"
         bootstrapbutton:bb_roundedCorners="true"
         bootstrapbutton:bb_type="warning"
-        />
+        android:padding="5dp" />
 </LinearLayout>
