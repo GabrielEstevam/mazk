@@ -138,14 +138,27 @@
                 />
 
             <TextView
-                android:id="@+id/registrar"
+                android:id="@+id/esqueceu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
+                android:text="Esqueceu sua senha?"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#DADFE1"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/registrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
                 android:text="Registrar"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#DADFE1" />
+                android:textColor="#DADFE1"
+                android:textSize="18dp"
+                android:paddingTop="5dp" />
 
         </LinearLayout>
 

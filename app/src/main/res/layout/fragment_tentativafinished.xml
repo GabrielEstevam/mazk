@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="#2C3E50"
+
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
     >
 
     <TextView
@@ -82,11 +84,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"></LinearLayout>
 
-        <Button
+        <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/ftf_button_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="OK" />
+            android:text="OK"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_type="success"
+            />
 
     </LinearLayout>
 

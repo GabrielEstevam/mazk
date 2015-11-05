@@ -18,6 +18,8 @@ import br.ufsc.labtec.mazk.beans.Resposta;
 import br.ufsc.labtec.mazk.beans.Tentativa;
 import br.ufsc.labtec.mazk.beans.dto.ErrosEAcertos;
 
+import com.beardedhen.androidbootstrap.*;
+
 /**
  * Created by Mihael Zamin on 16/04/2015.
  */
@@ -37,7 +39,7 @@ public class TentativaFinishedFragment extends Fragment {
         Log.i("TentFinish", "Número de acertos: " + acertos);*/
         ((TextView) v.findViewById(R.id.ftf_acertos)).setText(String.valueOf(errosEAcertos.getAcertos()));
         ((TextView) v.findViewById(R.id.ftf_erros)).setText(String.valueOf(errosEAcertos.getErros()));
-        ((Button) v.findViewById(R.id.ftf_button_ok)).setOnClickListener(new View.OnClickListener() {
+        (( BootstrapButton) v.findViewById(R.id.ftf_button_ok)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().onBackPressed();
