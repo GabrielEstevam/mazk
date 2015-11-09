@@ -9,7 +9,8 @@
         android:id="@+id/listPerguntas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:choiceMode="singleChoice" />
+        android:choiceMode="singleChoice"
+        android:padding="10dp" />
 
     <ProgressBar
         android:id="@+id/perguntas_progress"
